@@ -50,6 +50,13 @@ function App() {
     {title: "xayrlar", id: 2},
     {title: "omadlar", id: 3}
   ]);
+  //2
+  const [oquvchi, oquvchi2] = useState([
+    {name: "Avazjon", id: 1},
+    {name: "Dilnura", id: 2},
+    {name: "Ruxshona", id: 3}
+  ]);
+  //3
   const deletee = (id) => {
     alik((pre) => {
     return pre.filter((event) => {
@@ -57,6 +64,10 @@ function App() {
     });
     });
   };
+
+  
+  // new 1
+const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -118,12 +129,26 @@ function App() {
         }
       )}
       </div>
+
+      {/* yangi 2 */}
+      <div>
+        {oquvchi.map((oquv) => (
+          <div key={oquv.id}>
+            <h2>{oquv.name}</h2>
+            <button onClick={() => oquvchi2(oquvchi.filter((o) => o.id !== oquv.id))}>O'chirish</button>
+          </div>
+        ))}
+      </div>
     </div>
   
 
 
 
-
+        <div>
+          <h1>{count}</h1>
+          <button onClick={() => setCount(count + 5)}>+</button>
+              <button onClick={() => setCount(count - 1)}>-</button>
+        </div>
 
 
     </div> 
